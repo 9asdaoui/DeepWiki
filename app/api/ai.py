@@ -1,7 +1,9 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, Depends
 from app.services.ingestion import ingestion_service
 from app.services.ai_service import ai_service
 from app.services.gemini_service import gemini_service
+from app.api.deps import get_current_user
+from app.models.user import User
 
 router = APIRouter(
     prefix="/ai",
@@ -10,8 +12,11 @@ router = APIRouter(
 
 @router.get("/summarize")
 def summarize_wiki(
-    url: str = Query(..., examples=["https://en.wikipedia.org/wiki/Artificial_intelligence"])
+    url: str = Query(..., examples=["https://en.wikipedia.org/wiki/Artificial_intelligence"]),
+    current_user: User = Depends(get_current_user)
 ):
+    print(f"User {current_user.email} is requesting a summary.")
+    
     wiki_data = ingestion_service.fetch_wikipedia_data(url)
     if "error" in wiki_data: return wiki_data
     
