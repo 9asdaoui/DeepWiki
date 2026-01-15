@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 psycopg2-binary
-pydantic
+pydantic[email]
 pydantic-settings
 python-dotenv
 wikipedia
@@ -13,3 +13,5 @@ groq
 requests
 python-multipart
 google-generativeai
+passlib[bcrypt]
+python-jose[cryptography]
