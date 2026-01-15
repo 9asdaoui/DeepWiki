@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.database import engine
 from app.models import Base
-from app.api import auth, ingestion, ai
+from app.api import auth, ingestion, ai, upload
 
 Base.metadata.create_all(bind=engine)
 
@@ -14,6 +14,7 @@ app = FastAPI(
 app.include_router(auth.router)
 app.include_router(ingestion.router)
 app.include_router(ai.router)
+app.include_router(upload.router)
 
 @app.get("/")
 def root():

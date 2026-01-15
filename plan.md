@@ -29,7 +29,6 @@ TASK-09: Integrate Gemini API for Quiz Generation (Strict JSON output: MCQs + Op
 
 Tasks for EPIC 4 (Security)
 TASK-10: Implement OAuth2 + JWT Authentication.
-TASK-11: Integrate FaceAPI for identity verification during login.
 TASK-12: Create Admin Dashboard endpoints (User stats, total summaries, and downloads).
 
 
