@@ -13,5 +13,5 @@ groq
 requests
 python-multipart
 google-generativeai
-passlib[bcrypt]
+bcrypt
 python-jose[cryptography]
